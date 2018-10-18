@@ -1,4 +1,5 @@
 # Titanic
 
 ## Predict survival on the Titanic
-Titanic Kaggle Project
+
+- Working : https://github.com/Jenny210409/Titanic/blob/master/working.md
