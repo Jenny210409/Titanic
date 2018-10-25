@@ -87,7 +87,7 @@ total$Title <- NULL
  model<-rpart(Survived~.,train)
  rpart.plot(model)
  ```
- ##Prediction
+ ## Prediction
 ```
 
  #prediction
