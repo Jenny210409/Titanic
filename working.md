@@ -22,14 +22,14 @@ library(rpart.plot)
 train <- read.csv('C:/Data Science/Kaggle/train.csv', na.strings = c("", "NA"), stringsAsFactors =T)
 test <- read.csv('C:/Data Science/Kaggle/test.csv', na.strings = c("", "NA"), stringsAsFactors = T)
 ```
-####Binding train and test
+#### Binding train and test
 ```
 #bind
 survived<-train$Survived
 train$Survived<-NULL
 total<-rbind(train,test)
 ```
-####Data cleaning
+#### Data cleaning
 ```
 #data cleaning
 str(total)
@@ -73,7 +73,7 @@ total$Title <- NULL
  total$Fare[is.na(total$Fare)]<-prediction[is.na(total$Fare)]
  total$title <- title
  ```
- ###Split back to train and test
+ #### Split back to train and test
  ```
  #split
  train<-total[1:nrow(train),]
@@ -81,7 +81,7 @@ total$Title <- NULL
  train$Survived<-survived
  train$Survived<-as.factor(train$Survived)
  ```
- ####Modeling
+ #### Modeling
  ```
  #modeling
  model<-rpart(Survived~.,train)
@@ -97,6 +97,6 @@ total$Title <- NULL
 write.csv(submit,'C:/Data Science/Kaggle/submit.csv',row.names = F) 
  ```
  
- ##Conclusion
+ ## Conclusion
  This was an analysis of what sort of people were most likely to survive in the titanic and to find the percentage of how accurate the model is to predict the survival of different types of people. According to the model i have made and submitted to kaggle, the model had about 0.80382 percent accuracy of prediction made.
 
