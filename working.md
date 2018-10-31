@@ -23,6 +23,7 @@ train <- read.csv('C:/Data Science/Kaggle/train.csv', na.strings = c("", "NA"), 
 test <- read.csv('C:/Data Science/Kaggle/test.csv', na.strings = c("", "NA"), stringsAsFactors = T)
 ```
 #### Binding train and test
+Before doing a data clean, I will bind the train and test data.
 ```
 #bind
 survived<-train$Survived
@@ -30,6 +31,7 @@ train$Survived<-NULL
 total<-rbind(train,test)
 ```
 #### Data cleaning
+Now I will do a data clean as the data has some missing values. As some of the informations are not useful for the final modeling , I will take it out to produce a better model.
 ```
 #data cleaning
 str(total)
@@ -74,6 +76,7 @@ total$Title <- NULL
  total$title <- title
  ```
  #### Split back to train and test
+ As all data has been cleaned all together, I will split back the train and test back to a sperate data.
  ```
  #split
  train<-total[1:nrow(train),]
@@ -82,14 +85,16 @@ total$Title <- NULL
  train$Survived<-as.factor(train$Survived)
  ```
  #### Modeling
+ I will now use the train data to make a model to predict the survival for the test data.
  ```
  #modeling
  model<-rpart(Survived~.,train)
  rpart.plot(model)
  ```
  ## Prediction
+ By using the model I have made, I will now apply it to the test data.
+ 
 ```
-
  #prediction
  prediction<-predict(model,test,type = 'class')
  
